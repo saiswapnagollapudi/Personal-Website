@@ -1,0 +1,1080 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Sai Swapna Gollapudi - Senior Data Scientist specializing in Large Language Models, NLP, and ML Systems." />
+  <meta name="keywords" content="Sai Swapna, Data Scientist, LLM, NLP, Machine Learning, AWS, Amazon" />
+  <meta name="author" content="Sai Swapna Gollapudi" />
+  <!-- contact info intentionally omitted -->
+  <title>Sai Swapna Gollapudi | AI & ML Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy: #ffffff;
+      --navy-mid: #f4f6fb;
+      --navy-light: #e8edf5;
+      --gold: #1a3a6b;
+      --gold-light: #2a52a0;
+      --cream: #1a1a2e;
+      --cream-dark: #2c2c4a;
+      --slate: #6b7a99;
+      --white: #0d1b2e;
+      --text-primary: #1a2540;
+      --text-secondary: #4a5568;
+      --border: rgba(26, 58, 107, 0.15);
+      --card-bg: rgba(244, 246, 251, 0.8);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background-color: var(--navy);
+      color: var(--text-primary);
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    /* Animated background */
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: 
+        radial-gradient(ellipse at 20% 20%, rgba(26, 58, 107, 0.04) 0%, transparent 50%),
+        radial-gradient(ellipse at 80% 80%, rgba(26, 58, 107, 0.03) 0%, transparent 50%),
+        radial-gradient(ellipse at 60% 10%, rgba(244, 246, 251, 0.5) 0%, transparent 40%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.2rem 4rem;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      transition: all 0.3s ease;
+    }
+
+    .nav-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--gold);
+      letter-spacing: 0.02em;
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2.5rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+      position: relative;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px; left: 0;
+      width: 0; height: 1px;
+      background: var(--gold);
+      transition: width 0.3s ease;
+    }
+
+    .nav-links a:hover { color: var(--gold); }
+    .nav-links a:hover::after { width: 100%; }
+
+    /* SECTIONS */
+    section {
+      position: relative;
+      z-index: 1;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 6rem 2rem;
+    }
+
+    /* HERO */
+    #hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding-top: 8rem;
+      max-width: 1100px;
+    }
+
+    .hero-eyebrow {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.85rem;
+      color: var(--gold);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+      opacity: 0;
+      animation: fadeUp 0.8s ease 0.2s forwards;
+    }
+
+    .hero-name {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(3rem, 6vw, 5.5rem);
+      font-weight: 700;
+      line-height: 1.1;
+      color: var(--white);
+      margin-bottom: 1rem;
+      opacity: 0;
+      animation: fadeUp 0.8s ease 0.4s forwards;
+    }
+
+    .hero-name span {
+      color: #1a3a6b;
+      display: block;
+    }
+
+    .hero-title {
+      font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+      font-weight: 300;
+      color: var(--text-secondary);
+      margin-bottom: 2rem;
+      opacity: 0;
+      animation: fadeUp 0.8s ease 0.6s forwards;
+    }
+
+    .hero-desc {
+      max-width: 580px;
+      font-size: 1.05rem;
+      color: var(--text-secondary);
+      line-height: 1.8;
+      margin-bottom: 3rem;
+      opacity: 0;
+      animation: fadeUp 0.8s ease 0.8s forwards;
+    }
+
+    .hero-cta {
+      display: flex;
+      gap: 1.2rem;
+      flex-wrap: wrap;
+      opacity: 0;
+      animation: fadeUp 0.8s ease 1s forwards;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.9rem 2rem;
+      background: var(--gold);
+      color: var(--navy);
+      font-weight: 600;
+      font-size: 0.9rem;
+      letter-spacing: 0.05em;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 10px 100%, 0 calc(100% - 10px));
+    }
+
+    .btn-primary:hover {
+      background: var(--gold-light);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(26, 58, 107, 0.25);
+    }
+
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.9rem 2rem;
+      background: transparent;
+      color: var(--gold);
+      font-weight: 500;
+      font-size: 0.9rem;
+      letter-spacing: 0.05em;
+      text-decoration: none;
+      border: 1px solid var(--gold);
+      transition: all 0.3s ease;
+    }
+
+    .btn-secondary:hover {
+      background: rgba(26, 58, 107, 0.08);
+      transform: translateY(-2px);
+    }
+
+    .hero-stats {
+      display: flex;
+      gap: 3rem;
+      margin-top: 5rem;
+      padding-top: 3rem;
+      border-top: 1px solid var(--border);
+      opacity: 0;
+      animation: fadeUp 0.8s ease 1.2s forwards;
+    }
+
+    .stat-item { text-align: left; }
+
+    .stat-number {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: var(--gold);
+      line-height: 1;
+    }
+
+    .stat-label {
+      font-size: 0.8rem;
+      color: var(--slate);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-top: 0.3rem;
+    }
+
+    /* SECTION HEADERS */
+    .section-header {
+      margin-bottom: 3.5rem;
+    }
+
+    .section-eyebrow {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.75rem;
+      color: var(--gold);
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      margin-bottom: 0.8rem;
+    }
+
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.8rem, 3vw, 2.5rem);
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1.2;
+    }
+
+    .section-line {
+      width: 60px;
+      height: 2px;
+      background: var(--gold);
+      margin-top: 1rem;
+    }
+
+    /* ABOUT */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: start;
+    }
+
+    .about-text p {
+      color: var(--text-secondary);
+      margin-bottom: 1.2rem;
+      font-size: 1rem;
+      line-height: 1.85;
+    }
+
+    .about-highlights {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .highlight-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      padding: 1.5rem;
+      position: relative;
+      transition: all 0.3s ease;
+    }
+
+    .highlight-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 3px; height: 100%;
+      background: var(--gold);
+    }
+
+    .highlight-card:hover {
+      transform: translateX(4px);
+      border-color: rgba(201, 168, 76, 0.4);
+    }
+
+    .highlight-card h4 {
+      font-family: 'Playfair Display', serif;
+      color: var(--white);
+      font-size: 1rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .highlight-card p {
+      color: var(--slate);
+      font-size: 0.88rem;
+      line-height: 1.6;
+    }
+
+    /* EXPERIENCE */
+    .timeline {
+      position: relative;
+      padding-left: 2rem;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 0; bottom: 0;
+      width: 1px;
+      background: linear-gradient(to bottom, var(--gold), transparent);
+    }
+
+    .timeline-item {
+      position: relative;
+      margin-bottom: 3.5rem;
+      padding-left: 2rem;
+    }
+
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -2.4rem; top: 0.5rem;
+      width: 8px; height: 8px;
+      background: var(--gold);
+      border-radius: 50%;
+      box-shadow: 0 0 0 3px rgba(201, 168, 76, 0.2);
+    }
+
+    .timeline-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .timeline-company {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem;
+      color: var(--white);
+      font-weight: 600;
+    }
+
+    .timeline-role {
+      color: var(--gold);
+      font-size: 0.9rem;
+      font-weight: 500;
+      margin-bottom: 0.3rem;
+    }
+
+    .timeline-date {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.78rem;
+      color: var(--slate);
+      letter-spacing: 0.05em;
+      white-space: nowrap;
+    }
+
+    .timeline-projects {
+      margin-top: 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .project-block {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      padding: 1.2rem 1.5rem;
+      transition: all 0.3s ease;
+    }
+
+    .project-block:hover {
+      border-color: rgba(201, 168, 76, 0.4);
+      background: rgba(17, 34, 64, 0.9);
+    }
+
+    .project-block h4 {
+      color: var(--cream);
+      font-size: 0.95rem;
+      font-weight: 600;
+      margin-bottom: 0.6rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .project-block h4::before {
+      content: '▸';
+      color: var(--gold);
+      font-size: 0.8rem;
+    }
+
+    .project-block ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .project-block ul li {
+      color: var(--text-secondary);
+      font-size: 0.875rem;
+      line-height: 1.7;
+      padding-left: 1rem;
+      position: relative;
+      margin-bottom: 0.3rem;
+    }
+
+    .project-block ul li::before {
+      content: '—';
+      position: absolute;
+      left: 0;
+      color: var(--gold);
+      font-size: 0.75rem;
+    }
+
+    .tech-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-top: 0.8rem;
+    }
+
+    .tech-tag {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.72rem;
+      color: var(--gold);
+      background: rgba(26, 58, 107, 0.06);
+      border: 1px solid rgba(26, 58, 107, 0.2);
+      padding: 0.2rem 0.6rem;
+      letter-spacing: 0.05em;
+    }
+
+    /* SKILLS */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .skill-category {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      padding: 2rem;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .skill-category::after {
+      content: '';
+      position: absolute;
+      top: 0; right: 0;
+      width: 60px; height: 60px;
+      background: radial-gradient(circle, rgba(26, 58, 107, 0.06) 0%, transparent 70%);
+    }
+
+    .skill-category:hover {
+      border-color: rgba(201, 168, 76, 0.4);
+      transform: translateY(-3px);
+    }
+
+    .skill-category-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.05rem;
+      color: var(--gold);
+      margin-bottom: 1.2rem;
+      padding-bottom: 0.8rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .skill-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .skill-pill {
+      font-size: 0.8rem;
+      color: var(--text-secondary);
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      padding: 0.3rem 0.8rem;
+      transition: all 0.2s;
+    }
+
+    .skill-pill:hover {
+      color: var(--gold);
+      border-color: rgba(201, 168, 76, 0.3);
+      background: rgba(201, 168, 76, 0.05);
+    }
+
+    /* EDUCATION */
+    .edu-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+    }
+
+    .edu-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      padding: 2rem;
+      position: relative;
+      transition: all 0.3s ease;
+    }
+
+    .edu-card:hover {
+      border-color: rgba(201, 168, 76, 0.4);
+      transform: translateY(-3px);
+    }
+
+    .edu-degree {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      color: var(--white);
+      margin-bottom: 0.4rem;
+    }
+
+    .edu-school {
+      color: var(--gold);
+      font-size: 0.9rem;
+      font-weight: 500;
+      margin-bottom: 0.3rem;
+    }
+
+    .edu-detail {
+      color: var(--slate);
+      font-size: 0.82rem;
+      font-family: 'DM Mono', monospace;
+    }
+
+    /* CONTACT */
+    .contact-wrapper {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+    }
+
+    .contact-text h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      color: var(--white);
+      margin-bottom: 1rem;
+    }
+
+    .contact-text p {
+      color: var(--text-secondary);
+      line-height: 1.8;
+      margin-bottom: 2rem;
+    }
+
+    .contact-links {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .contact-link {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-size: 0.9rem;
+      padding: 1rem 1.5rem;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      transition: all 0.3s ease;
+    }
+
+    .contact-link:hover {
+      color: var(--gold);
+      border-color: rgba(201, 168, 76, 0.4);
+      transform: translateX(5px);
+    }
+
+    .contact-link-icon {
+      width: 36px; height: 36px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(26, 58, 107, 0.08);
+      color: var(--gold);
+      font-size: 1rem;
+      flex-shrink: 0;
+    }
+
+    .contact-form-note {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      padding: 2.5rem;
+    }
+
+    .contact-form-note h4 {
+      font-family: 'Playfair Display', serif;
+      color: var(--white);
+      margin-bottom: 1rem;
+      font-size: 1.1rem;
+    }
+
+    .contact-form-note p {
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+      line-height: 1.7;
+    }
+
+    .recognition-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(26, 58, 107, 0.08);
+      border: 1px solid rgba(26, 58, 107, 0.25);
+      color: var(--gold);
+      font-size: 0.78rem;
+      font-weight: 600;
+      padding: 0.3rem 0.8rem;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.6rem;
+    }
+
+    /* FOOTER */
+    footer {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      padding: 2.5rem;
+      border-top: 1px solid var(--border);
+      color: var(--slate);
+      font-size: 0.82rem;
+      font-family: 'DM Mono', monospace;
+    }
+
+    /* ANIMATIONS */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* MOBILE */
+    @media (max-width: 768px) {
+      nav { padding: 1rem 1.5rem; }
+      .nav-links { display: none; }
+      section { padding: 4rem 1.2rem; }
+      #hero { padding: 7rem 1.2rem 3rem; }
+      .about-grid, .contact-wrapper, .edu-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .hero-stats { gap: 2rem; flex-wrap: wrap; }
+      .timeline { padding-left: 1rem; }
+      .timeline-item { padding-left: 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="#hero" class="nav-logo">SSG</a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section id="hero">
+    <p class="hero-eyebrow">Senior Data Scientist & AI Engineer</p>
+    <h1 class="hero-name">
+      Sai Swapna
+      <span>Gollapudi</span>
+    </h1>
+    <p class="hero-title">Building Intelligence at Scale — LLMs, NLP & ML Systems</p>
+    <p class="hero-desc">
+      Data Scientist at Amazon with 9+ years of experience designing and productionizing machine learning systems that operate at massive scale. Specializing in Large Language Models, NLP pipelines, and end-to-end ML architecture.
+    </p>
+    <div class="hero-cta">
+      <a href="#experience" class="btn-primary">View My Work</a>
+      <a href="https://www.linkedin.com/in/sai-swapna-gollapudi-316a83a2/" target="_blank" class="btn-secondary">LinkedIn ↗</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat-item">
+        <div class="stat-number">9+</div>
+        <div class="stat-label">Years Experience</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">3M+</div>
+        <div class="stat-label">Documents Processed</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">50K+</div>
+        <div class="stat-label">Daily Query Evaluations</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">AMLC</div>
+        <div class="stat-label">2025 Conference</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="section-header reveal">
+      <p class="section-eyebrow">Who I Am</p>
+      <h2 class="section-title">About Me</h2>
+      <div class="section-line"></div>
+    </div>
+    <div class="about-grid">
+      <div class="about-text reveal">
+        <p>
+          I'm a Senior Data Scientist at Amazon, where I build machine learning systems that operate at the intersection of scale and precision. My work spans personalized learning platforms, fraud detection, search relevance, and LLM evaluation — each touching millions of users globally.
+        </p>
+        <p>
+          With a Master's in Data Science from Indiana University Bloomington and nearly a decade of industry experience, I bring both theoretical rigor and hands-on engineering depth to every problem I tackle.
+        </p>
+        <p>
+          My research on Abuse Detection was accepted and presented at the <strong style="color: var(--gold)">Amazon Machine Learning Conference (AMLC) 2025</strong> — a recognition of the novel multi-layer ML architecture I designed for enterprise-scale fraud pattern detection.
+        </p>
+        <p>
+          Outside of model building, I'm passionate about translating complex ML outputs into clear, actionable insights for business stakeholders — bridging the gap between research and real-world impact.
+        </p>
+      </div>
+      <div class="about-highlights reveal">
+        <div class="highlight-card">
+          <h4>🧠 Large Language Models</h4>
+          <p>Designing LLM-driven pipelines for skill extraction, feature engineering, code generation, and evaluation at production scale using Claude, GPT, and open-source models.</p>
+        </div>
+        <div class="highlight-card">
+          <h4>⚙️ ML Systems Engineering</h4>
+          <p>End-to-end model development on AWS SageMaker — from experimentation on TB-scale datasets to productionized, monitored, and scalable deployments.</p>
+        </div>
+        <div class="highlight-card">
+          <h4>🔍 Search & Recommendations</h4>
+          <p>Built semantic search and learning-to-rank systems replacing legacy BM25 models, with measurable NDCG metric improvements and stakeholder-driven A/B test validation.</p>
+        </div>
+        <div class="highlight-card">
+          <h4>📊 Anomaly & Fraud Detection</h4>
+          <p>Designed multi-layer unsupervised ML architectures using Isolation Forest, Autoencoders, and DBSCAN to detect emerging fraud patterns across high-volume enterprise data.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="experience">
+    <div class="section-header reveal">
+      <p class="section-eyebrow">Career</p>
+      <h2 class="section-title">Work Experience</h2>
+      <div class="section-line"></div>
+    </div>
+    <div class="timeline">
+
+      <!-- Amazon -->
+      <div class="timeline-item reveal">
+        <div class="timeline-header">
+          <div>
+            <div class="timeline-company">Amazon</div>
+            <div class="timeline-role">Data Scientist</div>
+          </div>
+          <div class="timeline-date">March 2022 — Present</div>
+        </div>
+        <div class="timeline-projects">
+
+          <div class="project-block">
+            <h4>Personalized Learning Experience (Learn)</h4>
+            <ul>
+              <li>Designed foundational ML architecture for a personalized learning platform processing 3M+ training documents</li>
+              <li>Built LLM-driven skill extraction pipeline using prompt engineering on unstructured training content</li>
+              <li>Implemented BERT/RoBERTa embedding-based skill normalization with K-Means and HDBSCAN clustering</li>
+              <li>Productionized models on AWS SageMaker with scalability, reproducibility, and monitoring</li>
+            </ul>
+            <div class="tech-tags">
+              <span class="tech-tag">Python</span><span class="tech-tag">PyTorch</span><span class="tech-tag">BERT</span><span class="tech-tag">RoBERTa</span><span class="tech-tag">SageMaker</span><span class="tech-tag">K-Means</span><span class="tech-tag">HDBSCAN</span><span class="tech-tag">Claude Sonnet</span>
+            </div>
+          </div>
+
+          <div class="project-block">
+            <div class="recognition-badge">⭐ AMLC 2025 — Accepted & Presented</div>
+            <h4>Abuse Detection</h4>
+            <ul>
+              <li>Led end-to-end experimentation on TB-scale datasets with missing/inconsistent data transformations</li>
+              <li>Proposed multi-layer ML architecture: unsupervised anomaly detection + consensus model to reduce false positives</li>
+              <li>Built LLM pipeline to extract structured features from policy documents under zero-shot and few-shot constraints</li>
+              <li>Designed LLM-assisted Python code generation with automated correction for production migration</li>
+            </ul>
+            <div class="tech-tags">
+              <span class="tech-tag">Isolation Forest</span><span class="tech-tag">Autoencoders</span><span class="tech-tag">DBSCAN</span><span class="tech-tag">One-Class SVM</span><span class="tech-tag">SageMaker</span><span class="tech-tag">Lambda</span><span class="tech-tag">Glue</span><span class="tech-tag">spaCy</span>
+            </div>
+          </div>
+
+          <div class="project-block">
+            <h4>Effortless Resolution Indicator</h4>
+            <ul>
+              <li>Developed effort estimation framework analyzing 2M+ monthly employee contacts across multiple channels</li>
+              <li>Created composite effort score combining operational metrics with ML-extracted behavioral and linguistic signals</li>
+              <li>Applied PCA, t-SNE, and clustering to identify effort archetypes and explain score drivers</li>
+            </ul>
+            <div class="tech-tags">
+              <span class="tech-tag">PCA</span><span class="tech-tag">t-SNE</span><span class="tech-tag">Autoencoders</span><span class="tech-tag">NLP</span><span class="tech-tag">Prompt Engineering</span><span class="tech-tag">SQL</span>
+            </div>
+          </div>
+
+          <div class="project-block">
+            <h4>LLM Evaluation Pipeline</h4>
+            <ul>
+              <li>Developed evaluation pipeline for globally deployed chatbot processing 50,000+ query-response pairs daily</li>
+              <li>Reduced processing time from 30 minutes to 30 seconds per 100 messages via parallel processing optimization</li>
+              <li>Benchmarked against AWS Bedrock Guardrails for hallucination detection and retrieval quality</li>
+            </ul>
+            <div class="tech-tags">
+              <span class="tech-tag">SageMaker</span><span class="tech-tag">SQS</span><span class="tech-tag">Lambda</span><span class="tech-tag">Bedrock API</span><span class="tech-tag">Glue</span><span class="tech-tag">QuickSight</span>
+            </div>
+          </div>
+
+          <div class="project-block">
+            <h4>Search Engine Development & Topic Modeling</h4>
+            <ul>
+              <li>Replaced BM25 model with learning-to-rank algorithm, demonstrating NDCG improvements in two weeks</li>
+              <li>Designed A/B testing framework to measure search impact and refine ranking strategies</li>
+              <li>Developed BERTopic + LLM taxonomy generation system for document classification</li>
+            </ul>
+            <div class="tech-tags">
+              <span class="tech-tag">BERTopic</span><span class="tech-tag">Learning-to-Rank</span><span class="tech-tag">A/B Testing</span><span class="tech-tag">Claude</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Capital One Senior -->
+      <div class="timeline-item reveal">
+        <div class="timeline-header">
+          <div>
+            <div class="timeline-company">Capital One</div>
+            <div class="timeline-role">Senior Data Scientist</div>
+          </div>
+          <div class="timeline-date">May 2021 — March 2022</div>
+        </div>
+        <div class="timeline-projects">
+          <div class="project-block">
+            <h4>Identity Theft Detection</h4>
+            <ul>
+              <li>Built ML models to identify identity theft in customer login process using CNN, Random Forest, XGBoost, LSTM</li>
+              <li>Built end-to-end data pipelines with feature engineering and statistical analysis</li>
+              <li>Developed Tableau dashboards to monitor model performance and evaluate metrics</li>
+            </ul>
+            <div class="tech-tags">
+              <span class="tech-tag">CNN</span><span class="tech-tag">XGBoost</span><span class="tech-tag">LSTM</span><span class="tech-tag">Python</span><span class="tech-tag">SQL</span><span class="tech-tag">Tableau</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Capital One Intern -->
+      <div class="timeline-item reveal">
+        <div class="timeline-header">
+          <div>
+            <div class="timeline-company">Capital One</div>
+            <div class="timeline-role">Data Science Intern</div>
+          </div>
+          <div class="timeline-date">June 2020 — Aug 2020</div>
+        </div>
+        <div class="timeline-projects">
+          <div class="project-block">
+            <h4>Digital Footprint Pattern Classification</h4>
+            <ul>
+              <li>Built model to identify and classify patterns in customer digital footprint with clickstream data</li>
+              <li>Applied LSTM/GRU, association rule mining, and convolutional neural networks</li>
+            </ul>
+            <div class="tech-tags">
+              <span class="tech-tag">LSTM</span><span class="tech-tag">GRU</span><span class="tech-tag">CNN</span><span class="tech-tag">Association Rule Mining</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- TCS -->
+      <div class="timeline-item reveal">
+        <div class="timeline-header">
+          <div>
+            <div class="timeline-company">Tata Consultancy Services</div>
+            <div class="timeline-role">Data Analyst</div>
+          </div>
+          <div class="timeline-date">July 2016 — July 2019</div>
+        </div>
+        <div class="timeline-projects">
+          <div class="project-block">
+            <h4>Predictive Classification & Financial Analytics</h4>
+            <ul>
+              <li>Built predictive classification models for retail order return analysis using Logistic Regression, Decision Trees, Random Forest with SMOTE for imbalanced data</li>
+              <li>Built risk classification model for Account Receivables</li>
+              <li>Developed automated financial analysis dashboards using RStudio, Spark, SQL, and Hadoop</li>
+            </ul>
+            <div class="tech-tags">
+              <span class="tech-tag">Python</span><span class="tech-tag">Sklearn</span><span class="tech-tag">SMOTE</span><span class="tech-tag">RStudio</span><span class="tech-tag">Spark</span><span class="tech-tag">Hadoop</span><span class="tech-tag">SQL</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills">
+    <div class="section-header reveal">
+      <p class="section-eyebrow">Expertise</p>
+      <h2 class="section-title">Skills & Technologies</h2>
+      <div class="section-line"></div>
+    </div>
+    <div class="skills-grid">
+      <div class="skill-category reveal">
+        <div class="skill-category-title">Languages</div>
+        <div class="skill-pills">
+          <span class="skill-pill">Python</span><span class="skill-pill">R</span><span class="skill-pill">SQL</span><span class="skill-pill">Spark</span><span class="skill-pill">PySpark</span><span class="skill-pill">HiveQL</span><span class="skill-pill">Java</span><span class="skill-pill">JavaScript</span><span class="skill-pill">React</span><span class="skill-pill">NodeJS</span><span class="skill-pill">HTML</span><span class="skill-pill">CSS</span>
+        </div>
+      </div>
+      <div class="skill-category reveal">
+        <div class="skill-category-title">Cloud & Platforms</div>
+        <div class="skill-pills">
+          <span class="skill-pill">AWS SageMaker</span><span class="skill-pill">Bedrock</span><span class="skill-pill">S3</span><span class="skill-pill">Lambda</span><span class="skill-pill">SQS</span><span class="skill-pill">SNS</span><span class="skill-pill">OpenSearch</span><span class="skill-pill">Glue</span><span class="skill-pill">GCP</span><span class="skill-pill">Databricks</span><span class="skill-pill">MLflow</span><span class="skill-pill">Hadoop</span>
+        </div>
+      </div>
+      <div class="skill-category reveal">
+        <div class="skill-category-title">ML & Deep Learning</div>
+        <div class="skill-pills">
+          <span class="skill-pill">PyTorch</span><span class="skill-pill">TensorFlow</span><span class="skill-pill">Keras</span><span class="skill-pill">Scikit-learn</span><span class="skill-pill">Hugging Face</span><span class="skill-pill">FastAI</span><span class="skill-pill">XGBoost</span><span class="skill-pill">Random Forest</span><span class="skill-pill">SVM</span>
+        </div>
+      </div>
+      <div class="skill-category reveal">
+        <div class="skill-category-title">LLMs & Generative AI</div>
+        <div class="skill-pills">
+          <span class="skill-pill">Claude</span><span class="skill-pill">GPT</span><span class="skill-pill">BERT</span><span class="skill-pill">RoBERTa</span><span class="skill-pill">Prompt Engineering</span><span class="skill-pill">Fine-tuning</span><span class="skill-pill">Zero-shot</span><span class="skill-pill">Few-shot</span><span class="skill-pill">RAG</span><span class="skill-pill">Embeddings</span>
+        </div>
+      </div>
+      <div class="skill-category reveal">
+        <div class="skill-category-title">NLP & Algorithms</div>
+        <div class="skill-pills">
+          <span class="skill-pill">spaCy</span><span class="skill-pill">NLTK</span><span class="skill-pill">BERTopic</span><span class="skill-pill">K-Means</span><span class="skill-pill">HDBSCAN</span><span class="skill-pill">DBSCAN</span><span class="skill-pill">Isolation Forest</span><span class="skill-pill">Autoencoders</span><span class="skill-pill">PCA</span><span class="skill-pill">t-SNE</span>
+        </div>
+      </div>
+      <div class="skill-category reveal">
+        <div class="skill-category-title">Visualization & Analytics</div>
+        <div class="skill-pills">
+          <span class="skill-pill">Tableau</span><span class="skill-pill">QuickSight</span><span class="skill-pill">A/B Testing</span><span class="skill-pill">Statistical Analysis</span><span class="skill-pill">Feature Engineering</span><span class="skill-pill">Temporal Validation</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EDUCATION -->
+  <section id="education">
+    <div class="section-header reveal">
+      <p class="section-eyebrow">Academic Background</p>
+      <h2 class="section-title">Education</h2>
+      <div class="section-line"></div>
+    </div>
+    <div class="edu-grid">
+      <div class="edu-card reveal">
+        <div class="edu-degree">Master of Science — Data Science</div>
+        <div class="edu-school">Indiana University Bloomington</div>
+        <div class="edu-detail">Bloomington, IN &nbsp;·&nbsp; Aug 2019 – May 2021</div>
+      </div>
+      <div class="edu-card reveal">
+        <div class="edu-degree">B.Tech — Mechanical Engineering</div>
+        <div class="edu-school">JNTU Hyderabad</div>
+        <div class="edu-detail">Hyderabad, India &nbsp;·&nbsp; Graduated May 2016</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="section-header reveal">
+      <p class="section-eyebrow">Get In Touch</p>
+      <h2 class="section-title">Contact</h2>
+      <div class="section-line"></div>
+    </div>
+    <div class="contact-wrapper">
+      <div class="contact-text reveal">
+        <h3>Let's connect.</h3>
+        <p>
+          Whether you're interested in collaboration, research opportunities, or just want to talk AI and ML — feel free to reach out. I'm always open to meaningful conversations.
+        </p>
+        <div class="contact-links">
+          <a href="https://www.linkedin.com/in/sai-swapna-gollapudi-316a83a2/" target="_blank" class="contact-link">
+            <div class="contact-link-icon">in</div>
+            LinkedIn Profile ↗
+          </a>
+        </div>
+      </div>
+      <div class="contact-form-note reveal">
+        <h4>Open to Opportunities</h4>
+        <p>
+          I'm currently based in the US and open to senior-level Data Scientist, ML Engineer, and AI Research roles — particularly those focused on LLMs, NLP systems, and large-scale ML infrastructure.
+        </p>
+        <br>
+        <p style="color: var(--gold); font-size: 0.85rem; font-family: 'DM Mono', monospace;">
+          ⭐ AMLC 2025 presenter — Abuse Detection with multi-layer ML architecture
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 Sai Swapna Gollapudi &nbsp;·&nbsp; Built with precision &nbsp;·&nbsp; All rights reserved</p>
+  </footer>
+
+  <script>
+    // Scroll reveal
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry, i) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => entry.target.classList.add('visible'), i * 80);
+        }
+      });
+    }, { threshold: 0.1 });
+    reveals.forEach(el => observer.observe(el));
+
+    // Nav scroll effect
+    const nav = document.querySelector('nav');
+    window.addEventListener('scroll', () => {
+      nav.style.boxShadow = window.scrollY > 50 
+        ? '0 4px 30px rgba(0,0,0,0.4)' 
+        : 'none';
+    });
+  </script>
+</body>
+</html>
