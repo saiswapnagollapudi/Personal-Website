@@ -2,9 +2,7 @@ name: Deploy to GitHub Pages
 
 on:
   push:
-    branches:
-      - main
-  workflow_dispatch:
+    branches: [main]
 
 jobs:
   build-and-deploy:
@@ -22,30 +20,18 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '18'
-          cache: 'npm'
-
-      - name: Debug - List files
-        run: |
-          echo "Current directory:"
-          pwd
-          echo "Files in current directory:"
-          ls -la
-          echo "Checking for package.json:"
-          test -f package.json && echo "package.json found" || echo "package.json NOT found"
+          cache: npm
 
       - name: Install dependencies
-        run: npm ci --legacy-peer-deps
+        run: npm install
 
-      - name: Build
+      - name: Build project
         run: npm run build
-
-      - name: Export static site
-        run: npm run export
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./out
+          path: ./dist
 
       - name: Deploy to GitHub Pages
         id: deployment
