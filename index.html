@@ -3,10 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Sai Swapna Gollapudi - Senior Data Scientist specializing in Large Language Models, NLP, and ML Systems." />
+  <meta name="description" content="Sai Swapna Gollapudi - Data Scientist specializing in Large Language Models, NLP, and ML Systems." />
   <meta name="keywords" content="Sai Swapna, Data Scientist, LLM, NLP, Machine Learning, AWS, Amazon" />
   <meta name="author" content="Sai Swapna Gollapudi" />
-  <!-- contact info intentionally omitted -->
   <title>Sai Swapna Gollapudi | AI & ML Portfolio</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -21,7 +20,6 @@
       --gold: #1a3a6b;
       --gold-light: #2a52a0;
       --cream: #1a1a2e;
-      --cream-dark: #2c2c4a;
       --slate: #6b7a99;
       --white: #0d1b2e;
       --text-primary: #1a2540;
@@ -40,15 +38,13 @@
       overflow-x: hidden;
     }
 
-    /* Animated background */
     body::before {
       content: '';
       position: fixed;
       top: 0; left: 0; right: 0; bottom: 0;
-      background: 
+      background:
         radial-gradient(ellipse at 20% 20%, rgba(26, 58, 107, 0.04) 0%, transparent 50%),
-        radial-gradient(ellipse at 80% 80%, rgba(26, 58, 107, 0.03) 0%, transparent 50%),
-        radial-gradient(ellipse at 60% 10%, rgba(244, 246, 251, 0.5) 0%, transparent 40%);
+        radial-gradient(ellipse at 80% 80%, rgba(26, 58, 107, 0.03) 0%, transparent 50%);
       pointer-events: none;
       z-index: 0;
     }
@@ -106,7 +102,6 @@
     .nav-links a:hover { color: var(--gold); }
     .nav-links a:hover::after { width: 100%; }
 
-    /* SECTIONS */
     section {
       position: relative;
       z-index: 1;
@@ -123,6 +118,13 @@
       justify-content: center;
       padding-top: 8rem;
       max-width: 1100px;
+    }
+
+    .hero-inner {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 4rem;
+      align-items: center;
     }
 
     .hero-eyebrow {
@@ -179,13 +181,39 @@
       animation: fadeUp 0.8s ease 1s forwards;
     }
 
+    /* PHOTO */
+    .hero-photo-wrap {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      animation: fadeUp 0.8s ease 0.5s forwards;
+    }
+
+    .hero-photo {
+      width: 220px;
+      height: 220px;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: center top;
+      border: 3px solid var(--border);
+      box-shadow: 0 8px 40px rgba(26, 58, 107, 0.15);
+      transition: all 0.3s ease;
+      display: block;
+    }
+
+    .hero-photo:hover {
+      box-shadow: 0 12px 50px rgba(26, 58, 107, 0.25);
+      transform: scale(1.02);
+    }
+
     .btn-primary {
       display: inline-flex;
       align-items: center;
       gap: 0.5rem;
       padding: 0.9rem 2rem;
       background: var(--gold);
-      color: var(--navy);
+      color: #fff;
       font-weight: 600;
       font-size: 0.9rem;
       letter-spacing: 0.05em;
@@ -251,9 +279,7 @@
     }
 
     /* SECTION HEADERS */
-    .section-header {
-      margin-bottom: 3.5rem;
-    }
+    .section-header { margin-bottom: 3.5rem; }
 
     .section-eyebrow {
       font-family: 'DM Mono', monospace;
@@ -318,7 +344,7 @@
 
     .highlight-card:hover {
       transform: translateX(4px);
-      border-color: rgba(201, 168, 76, 0.4);
+      border-color: rgba(26, 58, 107, 0.3);
     }
 
     .highlight-card h4 {
@@ -361,7 +387,7 @@
       width: 8px; height: 8px;
       background: var(--gold);
       border-radius: 50%;
-      box-shadow: 0 0 0 3px rgba(201, 168, 76, 0.2);
+      box-shadow: 0 0 0 3px rgba(26, 58, 107, 0.15);
     }
 
     .timeline-header {
@@ -410,8 +436,8 @@
     }
 
     .project-block:hover {
-      border-color: rgba(201, 168, 76, 0.4);
-      background: rgba(17, 34, 64, 0.9);
+      border-color: rgba(26, 58, 107, 0.3);
+      background: rgba(244, 246, 251, 1);
     }
 
     .project-block h4 {
@@ -430,10 +456,7 @@
       font-size: 0.8rem;
     }
 
-    .project-block ul {
-      list-style: none;
-      padding: 0;
-    }
+    .project-block ul { list-style: none; padding: 0; }
 
     .project-block ul li {
       color: var(--text-secondary);
@@ -485,16 +508,8 @@
       overflow: hidden;
     }
 
-    .skill-category::after {
-      content: '';
-      position: absolute;
-      top: 0; right: 0;
-      width: 60px; height: 60px;
-      background: radial-gradient(circle, rgba(26, 58, 107, 0.06) 0%, transparent 70%);
-    }
-
     .skill-category:hover {
-      border-color: rgba(201, 168, 76, 0.4);
+      border-color: rgba(26, 58, 107, 0.3);
       transform: translateY(-3px);
     }
 
@@ -507,25 +522,21 @@
       border-bottom: 1px solid var(--border);
     }
 
-    .skill-pills {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-    }
+    .skill-pills { display: flex; flex-wrap: wrap; gap: 0.5rem; }
 
     .skill-pill {
       font-size: 0.8rem;
       color: var(--text-secondary);
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(26, 58, 107, 0.04);
+      border: 1px solid rgba(26, 58, 107, 0.1);
       padding: 0.3rem 0.8rem;
       transition: all 0.2s;
     }
 
     .skill-pill:hover {
       color: var(--gold);
-      border-color: rgba(201, 168, 76, 0.3);
-      background: rgba(201, 168, 76, 0.05);
+      border-color: rgba(26, 58, 107, 0.3);
+      background: rgba(26, 58, 107, 0.08);
     }
 
     /* EDUCATION */
@@ -539,12 +550,11 @@
       background: var(--card-bg);
       border: 1px solid var(--border);
       padding: 2rem;
-      position: relative;
       transition: all 0.3s ease;
     }
 
     .edu-card:hover {
-      border-color: rgba(201, 168, 76, 0.4);
+      border-color: rgba(26, 58, 107, 0.3);
       transform: translateY(-3px);
     }
 
@@ -589,11 +599,7 @@
       margin-bottom: 2rem;
     }
 
-    .contact-links {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-    }
+    .contact-links { display: flex; flex-direction: column; gap: 1rem; }
 
     .contact-link {
       display: flex;
@@ -610,7 +616,7 @@
 
     .contact-link:hover {
       color: var(--gold);
-      border-color: rgba(201, 168, 76, 0.4);
+      border-color: rgba(26, 58, 107, 0.3);
       transform: translateX(5px);
     }
 
@@ -658,7 +664,6 @@
       margin-bottom: 0.6rem;
     }
 
-    /* FOOTER */
     footer {
       position: relative;
       z-index: 1;
@@ -670,7 +675,6 @@
       font-family: 'DM Mono', monospace;
     }
 
-    /* ANIMATIONS */
     @keyframes fadeUp {
       from { opacity: 0; transform: translateY(24px); }
       to { opacity: 1; transform: translateY(0); }
@@ -682,17 +686,17 @@
       transition: opacity 0.7s ease, transform 0.7s ease;
     }
 
-    .reveal.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
 
-    /* MOBILE */
     @media (max-width: 768px) {
       nav { padding: 1rem 1.5rem; }
       .nav-links { display: none; }
       section { padding: 4rem 1.2rem; }
       #hero { padding: 7rem 1.2rem 3rem; }
+      .hero-inner { grid-template-columns: 1fr; gap: 2rem; }
+      .hero-photo-wrap { order: -1; }
+      .hero-photo { width: 150px; height: 150px; }
+      .hero-cta { flex-wrap: wrap; }
       .about-grid, .contact-wrapper, .edu-grid { grid-template-columns: 1fr; gap: 2rem; }
       .hero-stats { gap: 2rem; flex-wrap: wrap; }
       .timeline { padding-left: 1rem; }
@@ -702,7 +706,6 @@
 </head>
 <body>
 
-  <!-- NAV -->
   <nav>
     <a href="#hero" class="nav-logo">SSG</a>
     <ul class="nav-links">
@@ -716,18 +719,25 @@
 
   <!-- HERO -->
   <section id="hero">
-    <p class="hero-eyebrow">Senior Data Scientist & AI Engineer</p>
-    <h1 class="hero-name">
-      Sai Swapna
-      <span>Gollapudi</span>
-    </h1>
-    <p class="hero-title">Building Intelligence at Scale — LLMs, NLP & ML Systems</p>
-    <p class="hero-desc">
-      Data Scientist at Amazon with 8+ years of experience designing and productionizing machine learning systems that operate at massive scale. Specializing in Large Language Models, NLP pipelines, and end-to-end ML architecture.
-    </p>
-    <div class="hero-cta">
-      <a href="#experience" class="btn-primary">View My Work</a>
-      <a href="https://www.linkedin.com/in/sai-swapna-gollapudi-316a83a2/" target="_blank" class="btn-secondary">LinkedIn ↗</a>
+    <div class="hero-inner">
+      <div class="hero-content">
+        <p class="hero-eyebrow">Data Scientist & AI Engineer</p>
+        <h1 class="hero-name">
+          Sai Swapna
+          <span>Gollapudi</span>
+        </h1>
+        <p class="hero-title">Building Intelligence at Scale — LLMs, NLP & ML Systems</p>
+        <p class="hero-desc">
+          Data Scientist at Amazon with 8+ years of experience designing and productionizing machine learning systems that operate at massive scale. Specializing in Large Language Models, NLP pipelines, and end-to-end ML architecture.
+        </p>
+        <div class="hero-cta">
+          <a href="#experience" class="btn-primary">View My Work</a>
+          <a href="https://www.linkedin.com/in/sai-swapna-gollapudi-316a83a2/" target="_blank" class="btn-secondary">LinkedIn ↗</a>
+        </div>
+      </div>
+      <div class="hero-photo-wrap">
+        <img src="myphoto.jpeg" alt="Sai Swapna Gollapudi" class="hero-photo" />
+      </div>
     </div>
     <div class="hero-stats">
       <div class="stat-item">
@@ -750,18 +760,10 @@
     </div>
     <div class="about-grid">
       <div class="about-text reveal">
-        <p>
-          I'm a Senior Data Scientist at Amazon, where I build machine learning systems that operate at the intersection of scale and precision. My work spans personalized learning platforms, fraud detection, search relevance, and LLM evaluation — each touching millions of users globally.
-        </p>
-        <p>
-          With a Master's in Data Science from Indiana University Bloomington and nearly a decade of industry experience, I bring both theoretical rigor and hands-on engineering depth to every problem I tackle.
-        </p>
-        <p>
-          My research on Abuse Detection was accepted and presented at the <strong style="color: var(--gold)">Amazon Machine Learning Conference (AMLC) 2025</strong> — a recognition of the novel multi-layer ML architecture I designed for enterprise-scale fraud pattern detection.
-        </p>
-        <p>
-          Outside of model building, I'm passionate about translating complex ML outputs into clear, actionable insights for business stakeholders — bridging the gap between research and real-world impact.
-        </p>
+        <p>I'm a Data Scientist at Amazon, where I build machine learning systems that operate at the intersection of scale and precision. My work spans personalized learning platforms, fraud detection, search relevance, and LLM evaluation — each touching millions of users globally.</p>
+        <p>With a Master's in Data Science from Indiana University Bloomington and nearly a decade of industry experience, I bring both theoretical rigor and hands-on engineering depth to every problem I tackle.</p>
+        <p>My research on Abuse Detection was accepted and presented at the <strong style="color: var(--gold)">Amazon Machine Learning Conference (AMLC) 2025</strong> — a recognition of the novel multi-layer ML architecture I designed for enterprise-scale fraud pattern detection.</p>
+        <p>Outside of model building, I'm passionate about translating complex ML outputs into clear, actionable insights for business stakeholders — bridging the gap between research and real-world impact.</p>
       </div>
       <div class="about-highlights reveal">
         <div class="highlight-card">
@@ -793,7 +795,6 @@
     </div>
     <div class="timeline">
 
-      <!-- Amazon -->
       <div class="timeline-item reveal">
         <div class="timeline-header">
           <div>
@@ -803,7 +804,6 @@
           <div class="timeline-date">March 2022 — Present</div>
         </div>
         <div class="timeline-projects">
-
           <div class="project-block">
             <h4>Personalized Learning Experience (Learn)</h4>
             <ul>
@@ -816,7 +816,6 @@
               <span class="tech-tag">Python</span><span class="tech-tag">PyTorch</span><span class="tech-tag">BERT</span><span class="tech-tag">RoBERTa</span><span class="tech-tag">SageMaker</span><span class="tech-tag">K-Means</span><span class="tech-tag">HDBSCAN</span><span class="tech-tag">Claude Sonnet</span>
             </div>
           </div>
-
           <div class="project-block">
             <div class="recognition-badge">⭐ AMLC 2025 — Accepted & Presented</div>
             <h4>Abuse Detection</h4>
@@ -830,7 +829,6 @@
               <span class="tech-tag">Isolation Forest</span><span class="tech-tag">Autoencoders</span><span class="tech-tag">DBSCAN</span><span class="tech-tag">One-Class SVM</span><span class="tech-tag">SageMaker</span><span class="tech-tag">Lambda</span><span class="tech-tag">Glue</span><span class="tech-tag">spaCy</span>
             </div>
           </div>
-
           <div class="project-block">
             <h4>Effortless Resolution Indicator</h4>
             <ul>
@@ -842,7 +840,6 @@
               <span class="tech-tag">PCA</span><span class="tech-tag">t-SNE</span><span class="tech-tag">Autoencoders</span><span class="tech-tag">NLP</span><span class="tech-tag">Prompt Engineering</span><span class="tech-tag">SQL</span>
             </div>
           </div>
-
           <div class="project-block">
             <h4>LLM Evaluation Pipeline</h4>
             <ul>
@@ -854,7 +851,6 @@
               <span class="tech-tag">SageMaker</span><span class="tech-tag">SQS</span><span class="tech-tag">Lambda</span><span class="tech-tag">Bedrock API</span><span class="tech-tag">Glue</span><span class="tech-tag">QuickSight</span>
             </div>
           </div>
-
           <div class="project-block">
             <h4>Search Engine Development & Topic Modeling</h4>
             <ul>
@@ -869,7 +865,6 @@
         </div>
       </div>
 
-      <!-- Capital One Senior -->
       <div class="timeline-item reveal">
         <div class="timeline-header">
           <div>
@@ -893,7 +888,6 @@
         </div>
       </div>
 
-      <!-- Capital One Intern -->
       <div class="timeline-item reveal">
         <div class="timeline-header">
           <div>
@@ -916,7 +910,6 @@
         </div>
       </div>
 
-      <!-- TCS -->
       <div class="timeline-item reveal">
         <div class="timeline-header">
           <div>
@@ -1021,9 +1014,7 @@
     <div class="contact-wrapper">
       <div class="contact-text reveal">
         <h3>Let's connect.</h3>
-        <p>
-          Whether you're interested in collaboration, research opportunities, or just want to talk AI and ML — feel free to reach out. I'm always open to meaningful conversations.
-        </p>
+        <p>Whether you're interested in collaboration, research opportunities, or just want to talk AI and ML — feel free to reach out. I'm always open to meaningful conversations.</p>
         <div class="contact-links">
           <a href="https://www.linkedin.com/in/sai-swapna-gollapudi-316a83a2/" target="_blank" class="contact-link">
             <div class="contact-link-icon">in</div>
@@ -1033,9 +1024,7 @@
       </div>
       <div class="contact-form-note reveal">
         <h4>Open to Opportunities</h4>
-        <p>
-          I'm currently based in the US and open to senior-level Data Scientist, ML Engineer, and AI Research roles — particularly those focused on LLMs, NLP systems, and large-scale ML infrastructure.
-        </p>
+        <p>I'm currently based in the US and open to Data Scientist, ML Engineer, and AI Research roles — particularly those focused on LLMs, NLP systems, and large-scale ML infrastructure.</p>
         <br>
         <p style="color: var(--gold); font-size: 0.85rem; font-family: 'DM Mono', monospace;">
           ⭐ AMLC 2025 presenter — Abuse Detection with multi-layer ML architecture
@@ -1049,7 +1038,6 @@
   </footer>
 
   <script>
-    // Scroll reveal
     const reveals = document.querySelectorAll('.reveal');
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry, i) => {
@@ -1060,12 +1048,9 @@
     }, { threshold: 0.1 });
     reveals.forEach(el => observer.observe(el));
 
-    // Nav scroll effect
     const nav = document.querySelector('nav');
     window.addEventListener('scroll', () => {
-      nav.style.boxShadow = window.scrollY > 50 
-        ? '0 4px 30px rgba(0,0,0,0.4)' 
-        : 'none';
+      nav.style.boxShadow = window.scrollY > 50 ? '0 4px 30px rgba(0,0,0,0.1)' : 'none';
     });
   </script>
 </body>
